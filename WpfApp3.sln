@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp3", "WpfApp3\WpfApp3.csproj", "{2BF23DF0-2338-481E-90E7-B2517008FCD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactCatalog", "Directory\ContactCatalog.csproj", "{0C206BF2-CD42-44B9-8A64-BEF4FB776B98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{7E8E8F61-7181-4201-A72C-CDB0B8DCB5BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BF23DF0-2338-481E-90E7-B2517008FCD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BF23DF0-2338-481E-90E7-B2517008FCD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BF23DF0-2338-481E-90E7-B2517008FCD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BF23DF0-2338-481E-90E7-B2517008FCD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C206BF2-CD42-44B9-8A64-BEF4FB776B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C206BF2-CD42-44B9-8A64-BEF4FB776B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C206BF2-CD42-44B9-8A64-BEF4FB776B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C206BF2-CD42-44B9-8A64-BEF4FB776B98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E8E8F61-7181-4201-A72C-CDB0B8DCB5BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E8E8F61-7181-4201-A72C-CDB0B8DCB5BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E8E8F61-7181-4201-A72C-CDB0B8DCB5BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E8E8F61-7181-4201-A72C-CDB0B8DCB5BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C15D8C1B-B314-42D9-AB91-1B525DCC7B5C}
+	EndGlobalSection
+EndGlobal

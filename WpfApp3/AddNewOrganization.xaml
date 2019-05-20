@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfApp3.AddNewOrganization"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="AddNewOrganization" Height="215.702" Width="285.538" MinHeight="215" MinWidth="290" MaxHeight="215" MaxWidth="290"
+        SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.4*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   FontSize="16"
+                   Text="Enter new organization"
+                   VerticalAlignment="Center"
+                   TextAlignment="Center"/>
+        <TextBox Grid.Row="1" Margin="5" Height="27"
+                 Text="{Binding AddedOrganization.OrganizationName, Mode=Default}"
+                 
+                 VerticalAlignment="Center"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Margin="5"
+                    Content="Cancel"
+                    FontSize="16" IsCancel="True"/>
+            <Button Grid.Column="1" Margin="5"
+                    Content="Add"
+                    Command="{Binding AddOrganizationCommand}"
+                    IsDefault="True"
+                    
+                    Click="Button_Click"
+                    FontSize="16"/>
+        </Grid>
+        
+    </Grid>
+</Window>

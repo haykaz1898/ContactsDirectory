@@ -1,0 +1,193 @@
+﻿<Window x:Class="WpfApp3.Edit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp3"
+        mc:Ignorable="d"
+        Title="Window1" Height="316" Width="202.5" MinHeight="460" MinWidth="580">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="5" Grid.ColumnSpan="2" DataContext="{Binding SelectedContact}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Height="27"
+                       FontSize="16"
+                       Text="First Name"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     Height="27"
+                     FontSize="16"
+                     Text="{Binding Path=FirstName}"
+                     VerticalAlignment="Center"
+                     TextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="5" Grid.ColumnSpan="2" DataContext="{Binding SelectedContact}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Height="27"
+                       FontSize="16"
+                       Text="Last Name"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     Height="27"
+                     FontSize="16"
+                     Text="{Binding Path=LastName}"
+                     VerticalAlignment="Center"
+                     TextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="2" Margin="5" Grid.ColumnSpan="2" DataContext="{Binding SelectedContact}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Height="27"
+                       FontSize="16"
+                       Text="Father Name"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     Height="27"
+                     FontSize="16"
+                     Text="{Binding Path=FatherName}"
+                     VerticalAlignment="Center"
+                     TextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="3" Margin="5" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Height="27"
+                       FontSize="16"
+                       Text="Organization"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <ComboBox Grid.Column="1"
+                     FontSize="16"
+                     ItemsSource="{Binding OrganizationViewModel.Organizations}"
+                     SelectedItem="{Binding SelectedContact.Organization}"
+                     Text="{Binding SelectedContact.Organization.OrganizationName}"
+                     DisplayMemberPath="OrganizationName"
+                     VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="4" Margin="5" Grid.ColumnSpan="2" DataContext="{Binding SelectedContact}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Height="27"
+                       FontSize="16"
+                       Text="Position"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     Height="27"
+                     FontSize="16"
+                     Text="{Binding Path=Position}"
+                     VerticalAlignment="Center"
+                     TextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="5" Margin="5" Grid.ColumnSpan="2" DataContext="{Binding SelectedContact}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Height="27"
+                       FontSize="16"
+                       Text="Details"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"/>
+            <TextBox Grid.Column="1"
+                     Height="27"
+                     FontSize="16"
+                     Text="{Binding Path=Details}"
+                     VerticalAlignment="Center"
+                     TextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="6" Margin="5" Grid.ColumnSpan="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" 
+                       Height="27"
+                       FontSize="16"
+                       Text="Communication Method"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"/>
+           
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+                <ListView Grid.Column="0" ItemsSource="{Binding SelectedContact.CommunicationMethods, Mode=TwoWay}"
+                          SelectedItem="{Binding CommunicationMethodViewModel.SelectedCommunicationMethod}">
+                    <ListView.Resources>
+                        <Style TargetType="ListViewItem">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsPreffered}" Value="True">
+                                    <Setter Property="Background" Value="LightGray"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.Resources>
+                    <ListView.View>
+
+                        <GridView>
+                            <GridViewColumn Header="Type" DisplayMemberBinding="{Binding Type.Type}"/>
+                            <GridViewColumn Header="Address"  DisplayMemberBinding="{Binding Address}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Margin="5,0,0,2"
+                            Content="Add"
+                            Click="NewCommunicationMethod"/>
+                    <Button Grid.Row="2" Margin="5,2,0,0"
+                            Content="Del"
+                            Command="{Binding CommunicationMethodViewModel.DeleteCommand}"
+                            CommandParameter="{Binding SelectedContact}"/>
+                </Grid>
+            </Grid>
+           
+        </Grid>
+        
+        <Button Grid.Row="7" Margin="5" 
+                Content="Save" 
+                Command="{Binding Path= ContactViewModel.UpdateCommand}" 
+                CommandParameter="{Binding Path=SelectedContact}"
+                Click="Close"
+                IsDefault="True"
+                Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
