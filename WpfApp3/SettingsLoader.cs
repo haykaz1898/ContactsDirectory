@@ -8,10 +8,10 @@ namespace WpfApp3
     {
         private ProgramSettings _programSettings;
         private static SettingsLoader _settingsLoader;
-
+        private const string filePath = @"../../settings.json";
         private SettingsLoader()
         {
-            _programSettings = JsonConvert.DeserializeObject<ProgramSettings>(File.ReadAllText(@".\settings.json"));
+            _programSettings = JsonConvert.DeserializeObject<ProgramSettings>(File.ReadAllText(filePath));
         }
 
         public static SettingsLoader Load()
@@ -26,7 +26,7 @@ namespace WpfApp3
         public void SaveChanges(ProgramSettings changedSettings)
         {
             string s = JsonConvert.SerializeObject(changedSettings);
-            StreamWriter sw = new StreamWriter("settings.json");
+            StreamWriter sw = new StreamWriter(filePath);
             sw.Write(s);
             sw.Close();
         }
